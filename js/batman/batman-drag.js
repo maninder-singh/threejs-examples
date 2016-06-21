@@ -117,18 +117,6 @@
 
         render();
             
-        var controls = {
-            rotateX : 0,
-            rotateY : 0,
-            rotateZ : 0
-        };
-
-        var gui = new dat.GUI();
-        gui.add(controls, 'rotateX', -180,180);
-        gui.add(controls, 'rotateY', -180,180);
-        gui.add(controls, 'rotateZ', -180,180);    
-
-
         function render() {
             extrudeMesh.rotation.y += ( targetRotationX - extrudeMesh.rotation.y ) * 0.05;
             extrudeMesh.rotation.x += ( targetRotationY - extrudeMesh.rotation.x ) * 0.05;
