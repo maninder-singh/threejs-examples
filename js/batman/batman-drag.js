@@ -115,8 +115,23 @@
             }
         }
 
+        controls = {
+            y : -74
+        };
+        
+        var gui = new dat.GUI();
+        gui.add(controls,'y',-74,74);
+        
+        yPosition = {y : -74};
+        var tween = TweenLite.to(yPosition,2,{
+                        y : 0,
+                        onUpdate : function(){
+                            extrudeMesh.position.y = yPosition.y;
+                        }
+                    });
+
         render();
-            
+
         function render() {
             extrudeMesh.rotation.y += ( targetRotationX - extrudeMesh.rotation.y ) * 0.05;
             extrudeMesh.rotation.x += ( targetRotationY - extrudeMesh.rotation.x ) * 0.05;
